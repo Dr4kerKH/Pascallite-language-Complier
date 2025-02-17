@@ -1,0 +1,224 @@
+108.lst		binary '+' requires integer operands
+109.lst		incompatible types for operator ':='
+110.lst		reference to undefined symbol m
+111.lst		symbol on left-hand side of assignment must have a storage mode of VARIABLE
+112.lst		incompatible types for operator ':='
+113.lst		one of "*", "and", "div", "mod", ")", "+", "-", ";", "<", "<=", "<>", "=", ">", ">=", or "or" expected
+114.lst		expected '(', integer, or non-keyword id; found +
+118.lst		binary 'and' requires boolean operands
+120.lst		can't read variables of this type
+125.lst		reference to undefined variable 'a'
+126.lst		reference to undefined variable 'a'
+127.lst		reading int to read-only or const location 'a'
+128.lst		non-keyword identifier expected
+129.lst		non-keyword identifier expected
+130.lst		',' or ')' expected after non-keyword identifier
+143.lst		expected non_key_id, integer, "not", "true", "false", '(', '+', or '-'
+150.lst		non_key_id, "read", or "write" expected
+154.lst		':=' expected in assignment statement
+155.lst		'(' expected after "read"
+156.lst		')' expected are non_key_id in "read"
+157.lst		';' expected
+158.lst		'(' expected after "write"
+159.lst		';' expected
+160.lst		')' expected
+161.lst		expected '(', boolean, or non-keyword id
+162.lst		')' expected
+163.lst		expected '(', integer, or non_key_id
+164.lst		')' expected
+165.lst		expected '(', integer, or non_key_id
+166.lst		binary '-' requires integer operands
+167.lst		binary '*' requires integer operands
+168.lst		binary 'div' requires integer operands
+169.lst		binary 'mod' requires integer operands
+170.lst		unary '-' requires an integer operand
+171.lst		unary 'not' requires a boolean operand
+172.lst		unary 'not' requires a boolean operand
+173.lst		binary '=' requires operands of the same type
+174.lst		binary '<>' requires operands of the same type
+175.lst		binary '<' requires integer operands
+176.lst		binary '<=' requires integer operands
+177.lst		binary '>' requires integer operands
+178.lst		binary '>=' requires integer operands
+
+parser()
+processError("keyword \"program\" expected");		
+
+prog()
+processError("keyword \"program\" expected");		
+processError("keyword \"begin\" expected")		
+processError("no text may follow \"end\"");
+
+progStmt()
+processError("keyword \"program\" expected");		
+processError("program name expected");
+processError("semicolon expected");
+
+consts()
+processError("keyword \"const\" expected");		
+processError("non-keyword identifier must follow \"const\"");
+
+vars()
+processError("keyword \"var\" expected");		
+processError("non-keyword identifier must follow \"var\"");
+
+beginEndStmt()
+processError("keyword \"begin\" expected");
+processError("keyword \"end\" , NON_KEY_ID, \"read\", or \"write\" expected");
+processError("period expected");
+
+constStmts()
+processError("non-keyword identifier expected");
+processError("\"=\" expected");
+processError("token to right of \"=\" illegal");
+processError("integer expected after sign");
+processError("boolean expected after \"not\"");
+processError("semicolon expected");
+processError("data type of token on the right-hand side must be INTEGER or BOOLEAN");
+processError("non-keyword identifier, \"begin\", or \"var\" expected");
+
+varsStmts()
+processError("non-keyword identifier expected");
+processError("\":\" expected");
+processError("illegal type follows \":\"");
+processError("semicolon expected");
+processError("non-keyword identifier or \"begin\" expected");
+
+ids()
+processError("non-keyword identifier expected");
+processError("non-keyword identifier expected");
+
+excesStmts()
+processError("non-key id, \"read\", \"write\"  End in EXECSTMTS expected ");
+
+exceStmt()
+processError("non-key id, \"read\", \"write\" or \"end\" expected in execStmt");
+
+assignStmt()
+processError("':=' expected in assignment statement");
+processError("expected non_key_id, integer, \"not\", \"true\", \"false\", '(', '+', or '-'");
+processError("one of \"*\", \"and\", \"div\", \"mod\", \")\", \"+\", \"-\", \";\", \"<\", \"<=\", \"<>\", \"=\", \">\", \">=\", or \"or\" expected");
+
+readStmt()
+processError("Keyword \"read\" expected" );
+processError("'(' expected after \"read\"");
+processError("non keyword identifier expected");
+processError("')' expected are non_key_id in \"read\"");
+processError("';' expected");
+
+writeStmt()
+processError("Keyword \"write\" expected");
+processError("'(' expected after \"write\"");
+processError("non keyword identifier expected");
+processError("',' or ')' expected after non-keyword identifier");
+processError("';' expected");
+
+part()
+processError("')' expected");
+processError("expected '(', boolean, or non-keyword_id");
+processError("')' expected");
+processError("expected '(', integer, or non-keyword_id");
+processError("')' expected");
+processError("expected '(', integer, or non_key_id");
+processError("')' is expected after EXPRESS");
+processError("what's this in part");
+
+insert()
+processError("symbol table overflow --max 256 entries");
+processError("multiple name definition");
+processError("illegal use of keyword");
+processError("symbol " + externalName + " is multiply defined");
+processError("illegal use of keyword");
+
+whichType()
+processError("reference to undefined constant");
+
+whichValue()
+processError("reference to undefined constant");
+
+code()
+processError("reference to undefined variable in read operation");
+processError("illegal use of keyword in CODE -> read");
+processError("can not read to CONSTANT");
+processError("reference to undefined variable in write operation");
+processError("illegal use of keyword in CODE -> write");
+processError("compiler error since function code should not be called with illegal arguements");
+
+popOperator()
+processError("compiler error; operator stack underflow");
+
+pushOperand()
+processError("reference to undefined symbol " + operand);
+
+popOperand()
+processError("compiler error; operand stack underflow");
+
+emitReadCode()
+processError("reference to undefined variable in read: " + operand);
+processError("can't read variables of this type");
+processError("attempting to read to a read-only location" + operand);
+
+emitWriteCode()
+processError("reference to undefined variable in write: " + operand);
+
+emitAssignCode()
+processError("incompatible types for operator ':='");
+processError("symbol on left-hand side of assignment must have a storage mode of VARIABLE");
+
+emitAddiionCode()
+processError("binary '+' requires integer operands");
+
+emitSubtractionCode()
+processError("binary '-' requires integer operands ");
+
+emitMultiplicationCode()
+processError("binary '*' requires integer operands");
+
+emitDivisionCode()
+processError("binary 'div' requires integer operands");
+
+emitModuloCode()
+processError("binary 'mod' requires integer operands");
+
+emitNegationCode()
+processError("unary '-' requires an integer operand");
+
+emitNotCode()
+processError("illegal type");
+
+emitAndCode()
+processError("binary 'and' requires boolean operands");
+
+emitOrCode()
+processError("illegal type");
+
+emitEqualityCode()
+processError("binary '=' requires operands of the same type");
+
+emitInequalityCode()
+processError("binary '<>' requires operands of the same type");
+
+emitLessThanCode()
+processError("binary '<' requires integer operands");
+
+emitLessThanOrEqualToCode()
+processError("binary '<=' requires integer operands");
+
+emitGreaterThanCode()
+processError("binary '>' requires integer operands");
+
+emitGreaterThanOrEqualToCode()
+processError("binary '>=' requires integer operands");
+
+freeTemp()
+processError("compiler error, currentTempNo should be ≥ –1");
+
+nextToken()
+processError("unexpected end of file");
+processError("'}' cannot begin a token");
+processError("encountered consecutive underscores");
+processError("'_' cannot end a token");
+processError("unexpected end of file");
+processError("no real numbers are allowed");
+processError("unexpected end of file");
+processError("illegal symbol from here? ");
